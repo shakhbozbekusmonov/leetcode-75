@@ -3,20 +3,17 @@
 
 //---------------- Start ----------------
 
-/**
- * @param {string} word1
- * @param {string} word2
- * @return {string}
- */
 function mergeAlternately(word1: string, word2: string): string {
+    let len: number = Math.max(word1.length, word2.length);
     let newStr: string = "";
-    if (word1.length > word2.length) {
-        for (let i = 0; i < word1.length; i++) {
-            newStr += word1.charAt(i) + word2.charAt(i);
+
+    for (let i = 0; i < len; i++) {
+        if (word1[i]) {
+            newStr += word1[i];
         }
-    } else {
-        for (let i = 0; i < word2.length; i++) {
-            newStr += word1.charAt(i) + word2.charAt(i);
+
+        if (word2[i]) {
+            newStr += word2[i];
         }
     }
     return newStr;
