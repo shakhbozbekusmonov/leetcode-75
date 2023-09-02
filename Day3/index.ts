@@ -36,3 +36,15 @@ function reverseVowels(s: string): string {
 //----------------------------------------------------------------
 
 function reverseWords(s: string): string {
+    let newStr: string[] = [];
+    let newS: string[] = s.trim().split(" ");
+    for (let i = 0; i < newS.length; i++) {
+        if (newS[i]) {
+            newStr.push(newS[i], " ");
+        }
+    }
+    newStr.pop();
+    return newStr.reverse().join("");
+}
+
+//----------------------------------------------------------------

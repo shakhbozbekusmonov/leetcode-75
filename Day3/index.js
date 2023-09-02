@@ -36,13 +36,14 @@ function reverseVowels(s) {
 //----------------------------------------------------------------
 function reverseWords(s) {
     let newStr = [];
-    for (let i = 0; i < s.trim().split(" ").length; i++) {
-        if (s[i]) {
-            newStr.push(s[i], " ");
+    let newS = s.trim().split(" ");
+    for (let i = 0; i < newS.length; i++) {
+        if (newS[i]) {
+            newStr.push(newS[i], " ");
         }
     }
     newStr.pop();
-    return newStr.reverse().join(" ");
+    return newStr.reverse().join("");
 }
-console.log(reverseWords("the sky is blue"));
+//----------------------------------------------------------------
 //# sourceMappingURL=index.js.map
