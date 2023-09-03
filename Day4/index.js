@@ -21,4 +21,22 @@ function increasingTriplet(nums) {
     return false;
 }
 //----------------------------------------------------------------
+function compress(chars) {
+    let l = 0, r = 0;
+    while (l < chars.length) {
+        while (r < chars.length && chars[l] === chars[r]) {
+            ++r;
+        }
+        if (l + 1 === r) {
+            l = r;
+            continue;
+        }
+        const len = r - l;
+        chars.splice(l + 1, len - 1, ...Array.from(len.toString()));
+        l = l + 1 + len.toString().length;
+        r = l;
+    }
+    return chars.length;
+}
+//----------------------------------------------------------------
 //# sourceMappingURL=index.js.map

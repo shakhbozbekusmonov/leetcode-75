@@ -23,3 +23,30 @@ function increasingTriplet(nums: number[]): boolean {
 }
 
 //----------------------------------------------------------------
+
+function compress(chars: string[]): number {
+    let l: number = 0,
+        r: number = 0;
+
+    while (l < chars.length) {
+        while (r < chars.length && chars[l] === chars[r]) {
+            ++r;
+        }
+
+        if (l + 1 === r) {
+            l = r;
+            continue;
+        }
+
+        const len = r - l;
+
+        chars.splice(l + 1, len - 1, ...Array.from(len.toString()));
+
+        l = l + 1 + len.toString().length;
+        r = l;
+    }
+
+    return chars.length;
+}
+
+//----------------------------------------------------------------
