@@ -50,3 +50,21 @@ function compress(chars: string[]): number {
 }
 
 //----------------------------------------------------------------
+
+/**
+ Do not return anything, modify nums in-place instead.
+ */
+function moveZeroes(nums: number[]): void {
+    let len: number = nums.length;
+
+    while (len > 0) {
+        if (nums[len - 1] === 0) {
+            const temp: number[] = nums.splice(len - 1, 1);
+
+            nums.push(...temp);
+        }
+        len--;
+    }
+}
+
+//---------------------------- END -----------------------------
