@@ -37,3 +37,28 @@ function maxArea(height: number[]): number {
 }
 
 //----------------------------------------------------------------------
+
+function maxOperations(nums: number[], k: number): number {
+    nums.sort((a, b) => a - b);
+    let operationCount: number = 0;
+    let left: number = 0,
+        right: number = nums.length - 1;
+
+    while (left < right) {
+        const sum = nums[left] + nums[right];
+
+        if (sum === k) {
+            operationCount++;
+            right--;
+            left++;
+        } else if (sum > k) {
+            right--;
+        } else {
+            left++;
+        }
+    }
+
+    return operationCount;
+}
+
+//---------------------------------------------------------------------

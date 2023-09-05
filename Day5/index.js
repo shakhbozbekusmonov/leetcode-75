@@ -28,4 +28,25 @@ function maxArea(height) {
     return maxArea;
 }
 //----------------------------------------------------------------------
+function maxOperations(nums, k) {
+    nums.sort((a, b) => a - b);
+    let operationCount = 0;
+    let left = 0, right = nums.length - 1;
+    while (left < right) {
+        const sum = nums[left] + nums[right];
+        if (sum === k) {
+            operationCount++;
+            right--;
+            left++;
+        }
+        else if (sum > k) {
+            right--;
+        }
+        else {
+            left++;
+        }
+    }
+    return operationCount;
+}
+//---------------------------------------------------------------------
 //# sourceMappingURL=index.js.map
