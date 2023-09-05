@@ -14,3 +14,26 @@ function isSubsequence(s: string, t: string): boolean {
 }
 
 //----------------------------------------------------------
+
+function maxArea(height: number[]): number {
+    let maxArea: number = 0;
+    let left: number = 0,
+        right: number = height.length - 1;
+
+    while (left < right) {
+        maxArea = Math.max(
+            maxArea,
+            Math.min(height[left], height[right]) * (right - left)
+        );
+
+        if (height[left] < height[right]) {
+            left++;
+        } else {
+            right--;
+        }
+    }
+
+    return maxArea;
+}
+
+//----------------------------------------------------------------------
