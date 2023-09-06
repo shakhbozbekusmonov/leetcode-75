@@ -29,3 +29,39 @@ function pivotIndex(nums: number[]): number {
 }
 
 //---------------------------------------------------
+
+function maxVowels(s: string, k: number): number {
+    const vowels = new Set(["a", "e", "i", "o", "u"]);
+
+    let curr: number = 0;
+    for (let i = 0; i < k; i++) {
+        if (vowels.has(s[i])) {
+            curr++;
+        }
+    }
+
+    if (curr === k) {
+        return curr;
+    }
+
+    let ans: number = curr;
+    for (let i = k; i < s.length; i++) {
+        if (vowels.has(s[i])) {
+            curr++;
+        }
+
+        if (vowels.has(s[i - k])) {
+            curr--;
+        }
+
+        if (curr === k) {
+            return curr;
+        }
+
+        ans = Math.max(ans, curr);
+    }
+
+    return ans;
+}
+
+//--------------------------- END -----------------------
