@@ -11,4 +11,16 @@ function largestAltitude(gain) {
     return ans;
 }
 //---------------------------------------------------
+function pivotIndex(nums) {
+    let sumLeft = 0;
+    let sum = nums.reduce((acc, cur) => acc + cur, 0);
+    for (let i = 0; i < nums.length; i++) {
+        if (sumLeft === sum - sumLeft - nums[i]) {
+            return i;
+        }
+        sumLeft += nums[i];
+    }
+    return -1;
+}
+//---------------------------------------------------
 //# sourceMappingURL=index.js.map

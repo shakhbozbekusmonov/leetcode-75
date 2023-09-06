@@ -14,3 +14,18 @@ function largestAltitude(gain: number[]): number {
 }
 
 //---------------------------------------------------
+
+function pivotIndex(nums: number[]): number {
+    let sumLeft: number = 0;
+    let sum: number = nums.reduce((acc, cur) => acc + cur, 0);
+
+    for (let i = 0; i < nums.length; i++) {
+        if (sumLeft === sum - sumLeft - nums[i]) {
+            return i;
+        }
+        sumLeft += nums[i];
+    }
+    return -1;
+}
+
+//---------------------------------------------------
