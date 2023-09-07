@@ -25,3 +25,24 @@ function findDifference(nums1: number[], nums2: number[]): number[][] {
 }
 
 //----------------------------------------------------------------
+
+function longestOnes(nums: number[], k: number): number {
+    let i: number = 0,
+        j: number = 0;
+
+    for (; j < nums.length; j++) {
+        if (nums[j] === 0) {
+            k--;
+        }
+        if (k < 0) {
+            if (nums[i] === 0) {
+                k++;
+            }
+            i++;
+        }
+    }
+
+    return j - i;
+}
+
+//----------------------------------------------------------------

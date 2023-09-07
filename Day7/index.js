@@ -20,4 +20,20 @@ function findDifference(nums1, nums2) {
     return [Array.from(ans1), Array.from(ans2)];
 }
 //----------------------------------------------------------------
+function longestOnes(nums, k) {
+    let i = 0, j = 0;
+    for (; j < nums.length; j++) {
+        if (nums[j] === 0) {
+            k--;
+        }
+        if (k < 0) {
+            if (nums[i] === 0) {
+                k++;
+            }
+            i++;
+        }
+    }
+    return j - i;
+}
+//----------------------------------------------------------------
 //# sourceMappingURL=index.js.map
